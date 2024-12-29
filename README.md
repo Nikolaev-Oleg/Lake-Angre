@@ -30,7 +30,8 @@ The model also included a modified date. To do so we calculated the time differe
 n'=|sin(365.25n)|
  
 **Model 1.1**
-so, there were initially 17 predictors. To account for the possible time lag, another 16 predictors were added, which represented LARC data with a 1-month back shift. Larger time shifts were not taken into account in the model, since with the addition of a larger number of parameters, the task of comparing models using AIC becomes too computationally complicated. Variables with a time shift are designated by the suffix _shift1.
+
+So, there were initially 17 predictors. To account for the possible time lag, another 16 predictors were added, which represented LARC data with a 1-month back shift. Larger time shifts were not taken into account in the model, since with the addition of a larger number of parameters, the task of comparing models using AIC becomes too computationally complicated. Variables with a time shift are designated by the suffix _shift1.
 We also added precipitation data for each month from November to May as predictors, since the amount of snow in winter can affect the amount of water in the lake. 
 Thus, there were 40 predictors in total. Next, we estimated the correlation coefficients of the predictors with the lake area and selected those for which the coefficient was greater than 0.35. The remaining parameters were:
 1) RH
@@ -91,6 +92,7 @@ _Fig. S2. Prediction of the temporal dynamics of the area using model 1.1. Red �
 Using the dredge function of the [MuMin](https://cran.r-project.org/web/packages/MuMIn/index.html) package, we estimated the AIC for models in which all possible combinations of predictors from model 1.1 were used as predictors. The model with the lowest AIC was called model 1.2.
 
 **Model 1.2**
+
 Model 1.2 had the next form:
 **area = β + ɑ1⋅dec_prec + ɑ2⋅GWETTOP + ɑ3⋅PRECTOTCORR + ɑ4⋅PRECTOTCORR_SUM_shift1 + ɑ5⋅TS + ɑ6⋅TS_shift1**
 For this model, we obtained adjusted R2 = 0.58, AIC = 1870. The effects were significant for  GWETTOP, PRECTOTCORR_SUM_shift1, TS and  dec_prec (**fig. S3**)
@@ -99,6 +101,7 @@ For this model, we obtained adjusted R2 = 0.58, AIC = 1870. The effects were sig
 _Fig. S3. Prediction of the temporal dynamics of the lake area using model 1.2. Red – real data, blue – model prediction_
 
 **Model 1.3**
+
 In model 1.3, we included all possible interactions of the predictors from model 2. The resulting model had an adjusted R2 = 0.61 and an AIC = 1877. The effects of dec_prec ⋅ PRECTOTCORR, dec_prec ⋅ PRECTOTCORR_SUM_shift1, dec_prec ⋅ TS, dec_prec ⋅ TS_shift1, and intercept were significant in this model (**fig. S4**).
 Next, using the dredge function of the MuMin package, we selected a combination of predictors, taking into account their interactions, that yielded the lowest AIC of the model. The selected model was assigned model 1.4.
 
@@ -106,6 +109,7 @@ Next, using the dredge function of the MuMin package, we selected a combination 
 _Fig. S4. Prediction of the temporal dynamics of the lake area using model 1.3. Red – real data, blue – model prediction_
 
 **Model 1.4** 
+
 Model 1.4 structure was as follows: 
 **area = β + ɑ1⋅dec_prec + ɑ2⋅GWETTOP + ɑ3⋅PRECTOTCORR + ɑ4⋅PRECTOTCORR_SUM_shift1 + ɑ5⋅TS + ɑ6⋅dec_prec:PRECTOTCORR + ɑ7⋅PRECTOTCORR:TS**
 
@@ -115,6 +119,7 @@ The adjusted R2 for this model was 0.61, AIC = 1867 (**fig. S5**), with signific
 _Fig. S5. Prediction of the temporal dynamics of the lake area using model 1.4. Red – real data, blue – model prediction_
 
 **Model 1.5**
+
 Model 1.5 included only the significant effects from Model 1.4. Thus, Model 1.5 had the form
 **area = β + ɑ1⋅GWETTOP + ɑ2⋅PRECTOTCORR_SUM_shift1 + ɑ3⋅TS + ɑ4⋅dec_prec:PRECTOTCORR + ɑ5⋅PRECTOTCORR:TS.**
 For this model we obtained adjusted R2 = 0.61, AIC = 1863 (**fig. S6**).
@@ -123,6 +128,7 @@ For this model we obtained adjusted R2 = 0.61, AIC = 1863 (**fig. S6**).
 _Fig. S6. Prediction of the temporal dynamics of the lake area using model 1.5. Red – real data, blue – model prediction_
 
 **Model 1.6**
+
 Finally, we tested a model including only the significant effects of model 1.2. This model was in form:
 **area = β + ɑ1 ⋅ GWETTOP + ɑ2 ⋅ PRECTOTCORR_SUM_shift1 + ɑ 3 ⋅ TS + ɑ4 ⋅ dec_prec.** 
 For this model, we obtained adjusted R2 = 0.58 and AIC = 1869 (fig. S7). Thus, the best of the tested models is model 1.5.
