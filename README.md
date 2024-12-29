@@ -136,3 +136,61 @@ For this model, we obtained adjusted R2 = 0.58 and AIC = 1869 (fig. S7). Thus, t
 
 ![image](https://github.com/user-attachments/assets/25e70c53-fb3e-4db6-afa9-845454aa4114)
 _Fig. S7. Prediction of the temporal dynamics of the lake area using model 1.5. Red – real data, blue – model prediction_
+
+**Prediction of the lake area of based on weather station data**
+
+Since soil moisture, soil surface temperature, current, previous month and December precipitation were significant predictors of lake area, we looked for parameters measured by four nearest weather stations to Lake Angre that could be used instead of LARC climatological parameters.
+Temperature and precipitation could be obtained directly for four nearest weather stations. Surface soil moisture (GWETTOP) was not measured at these stations, and we needed to find parameters that could predict LARC GWETTOP.
+We obtained a weak but significant (adjusted R2 = 0.31, p < 0.001) correlation of GWETTOP with temperature, relative humidity and precipitation in the previous month (fig. S8).
+
+![image](https://github.com/user-attachments/assets/7c5c3777-3839-4bc2-8405-78791c79a97f)
+ _Fig. S8. Prediction of surface soil moisture by LARC using weather station data_.
+
+We could not use all of the variables simultaneously to predict lake area, since that would require us to use 32 variables simultaneously, which would result in 232 predictor combinations when selecting the model with the best AIC.
+To reduce the number of calculations to an acceptable level, we first used only the current month's data to predict the lake area, and then only the previous month's data.
+
+**Model 2.1**
+
+When modeling the lake area based on all of the current month's data, the model with the lowest AIC (model 2.1) included air temperature based on Dolinovka and Sobolevo stations and the amount of precipitation in December based on Sobolevo weather station data, as well as a significant intercept. adjusted R2 for this model was 0.44, AIC = 1565 (fig. S9).
+
+![image](https://github.com/user-attachments/assets/8f70d916-6aa3-4f0a-a438-d5f19b455198)
+_Fig. S9. Prediction of the temporal dynamics of the lake area using model 2.1. Red – real data, blue – model prediction_
+
+**Model 2.2**
+
+We additionally developed a linear model including weather data for the current month, as in the case of model 2.1, but with intercept = 0. We again selected a combination of model parameters that would yield the lowest AIC. The selected model included air temperature in Dolinovka and Sobolevo weather stations, relative air humidity in Icha station and precipitation in December in Sobolevo station. All effects were significant. The adjusted R2 of this model was 0.99, AIC was 1564 (fig. S10).
+
+![image](https://github.com/user-attachments/assets/d1c554d3-73d3-4017-af33-1a744fb0b6d1)
+_Fig. S10. Prediction of the temporal dynamics of the lake area using model 2.2. Red – real data, blue – model prediction_
+
+**Model 2.3**
+
+Next, we used weather data from the four closest weather stations to Lake Angre for the previous month to predict the lake area. For the initial model, we used all parameters from all stations, and then used MuMin::dredge to select a combination of parameters that minimized AIC. The selected model included temperatures from Dolinovka, Icha, and Esso weather stations, precipitation in December from Sobolevo weather station, and relative humidity from Icha weather station. For this model, adjusted R2 = 0.5033, AIC = 1602 (fig. S11).
+
+![image](https://github.com/user-attachments/assets/54c295ee-4ebf-4503-9057-9642a7b5fdb2)
+_Fig. S11. Prediction of the temporal dynamics of the lake area using model 2.3. Red – real data, blue – model prediction_
+
+In this model, the effects of temperature in Dolinovka and Esso weather stations, precipitation in December in the Sobolevo weather station and relative air humidity in the Icha weather station were significant and intercept was non-significant.
+
+**Model 2.4**
+
+Next, we built a model that included only the variables that had a significant effect in Model 2.3. For this model, we obtained adjusted R 2 = 0.99, AIC = 1599 (fig. S12).
+
+![image](https://github.com/user-attachments/assets/6dc602d6-a7f6-45ea-baf6-a4e3b2a1bf67)
+_Fig. S12. Prediction of the temporal dynamics of the lake area using model 2.4. Red – real data, blue – model prediction_
+
+**Model 2.5**
+
+In order to take into account data for both the current and previous months, we combined the predictors from models 2.2 and 2.4. The resulting model had adjusted R2 = 0.99 and AIC = 1561. A significant effect was found for precipitation in December in the Sobolevo weather station, temperature for the previous month in the Esso weather station, and relative humidity for the previous month in the Icha weather station (fig. S13).
+
+![image](https://github.com/user-attachments/assets/4ba04ac8-eebd-4454-8ad0-f7eec71646bf)
+_Fig. S13. Prediction of the temporal dynamics of the lake area using model 2.5. Red – real data, blue – model prediction_
+
+**Model 2.6**
+
+Finally, we estimated the quality of the model including only the variables with significant effects from model 2.5. This newmodel was called model 2.6, and we obtained adjusted R 2 = 0.99, AIC = 1559 for it (fig. S14).
+
+![image](https://github.com/user-attachments/assets/d258b5a1-4fa3-4116-adb7-dd81cf48dafb)
+_Fig. S14. Prediction of the temporal dynamics of the lake area using model 2.6. Red – real data, blue – model prediction_
+
+Model 2.6 was chosen to predict the water level dynamics in Lake Angre over a long time series because it had the highest adjusted R2 and the lowest AIC among the models assessed.
