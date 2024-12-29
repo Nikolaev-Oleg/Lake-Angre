@@ -144,6 +144,7 @@ Temperature and precipitation could be obtained directly for four nearest weathe
 We obtained a weak but significant (adjusted R2 = 0.31, p < 0.001) correlation of GWETTOP with temperature, relative humidity and precipitation in the previous month (fig. S8).
 
 ![image](https://github.com/user-attachments/assets/7c5c3777-3839-4bc2-8405-78791c79a97f)
+
  _Fig. S8. Prediction of surface soil moisture by LARC using weather station data_.
 
 We could not use all of the variables simultaneously to predict lake area, since that would require us to use 32 variables simultaneously, which would result in 232 predictor combinations when selecting the model with the best AIC.
