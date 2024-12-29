@@ -57,6 +57,7 @@ Thus, there were 40 predictors in total. Next, we estimated the correlation coef
 22) ALLSKY_SFC_LW_DWN_shift1
 23) n'
 24) dec_prec (precipitation in December)
+
 We then found predictors that were correlated with each other such that |R| was larger than 0.95, and retained only one predictor from each group of correlated variables (**fig. S1**).
 
 ![image](https://github.com/user-attachments/assets/f5395971-d4d9-4b5b-8458-7490306f0164)
