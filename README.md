@@ -4,6 +4,7 @@ DOI would be added asap
 
 - The Lake-Angre1.R file contains the code for models 1.1 - 1.6
 - The Lake-Angre2.R file contains the code for models 2.1 - 2.6
+- The Lake-Angre3.R file contains the code for the 'Surface' logger data prediction. This code partially duplicates Lake-Angre2.R
 - Files modify_date.R and modify_date_up.R contain custom function which are used in the main code
 
 **Model 1 description** 
@@ -195,3 +196,16 @@ Finally, we estimated the quality of the model including only the variables with
 _Fig. S14. Prediction of the temporal dynamics of the lake area using model 2.6. Red – real data, blue – model prediction_
 
 Model 2.6 was chosen to predict the water level dynamics in Lake Angre over a long time series because it had the highest adjusted R2 and the lowest AIC among the models assessed.
+
+**Correlation between logger data and the LandSat 5-7 data**
+We further studied the relation between the ‘surface’ logger temperature data and LST using linear regression. LST and the logger temperature correlated non-significantly, although p was close to the significance level (R = 0.61, p = 0.062).
+
+However, visual inspection of the lake surface temperature dynamics uncovered a more complex relation between the logger data and LST. Due to water level oscillations, surface data logger might sometimes sink, which could lead to the logger temperature drop-down (fig. S15).
+
+![image](https://github.com/user-attachments/assets/d9cfec5f-b46d-476b-a103-a0a324cb0637)
+
+_Fig. S15. Surface logger temperature data, LandSat 5-7 temperature data and the lake area aligned along the time coordinates. It is easily seen that high floods (as in 2020 and 2021) correspond to high LST, but low logger temperature. Shaded areas are ice-covered periods._
+
+To take this effect into account, we added a dummy predictor into the model, which was equal to 1 when the lake area was more than 2 * 106 m2, as well as its interaction with LST.
+This model predicted the surface logger temperature much better (R2 = 0.90, AIC = 20). Both LST and the dummy lake area effects were significant, as well as their interaction, intercept was non-significant.
+The model including LST and the dummy lake area as well as their interaction, but not intercept, showed ever better performance (R2 = 0.99, AIC = 19).
