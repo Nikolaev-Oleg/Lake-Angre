@@ -198,6 +198,7 @@ _Fig. S14. Prediction of the temporal dynamics of the lake area using model 2.6.
 Model 2.6 was chosen to predict the water level dynamics in Lake Angre over a long time series because it had the highest adjusted R2 and the lowest AIC among the models assessed.
 
 **Correlation between logger data and the LandSat 5-7 data**
+
 We further studied the relation between the ‘surface’ logger temperature data and LST using linear regression. LST and the logger temperature correlated non-significantly, although p was close to the significance level (R = 0.61, p = 0.062).
 
 However, visual inspection of the lake surface temperature dynamics uncovered a more complex relation between the logger data and LST. Due to water level oscillations, surface data logger might sometimes sink, which could lead to the logger temperature drop-down (fig. S15).
